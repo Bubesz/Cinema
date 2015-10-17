@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:substituteby="_master :: head">
+    <title>Simple</title>
+    <link rel="stylesheet" href="../resources/css/foundation.min.css"/>
+    <link rel="stylesheet" href="../resources/css/style.css"/>
+</head>
+<body>
+
+<header class="template row" th:substituteby="_master :: header">
+    <div class="small-10 columns">
+        <h1>[[Title]]</h1>
+    </div>
+</header>
+
+<div class="row">
+    <div class="small-10 columns">
+        <h2>List of users in database</h2>
+
+        <table>
+            <tr>
+                <th>UserId</th>
+                <th>Name</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.userId}">12</td>
+                <td th:text="${user.useName}">Attila</td>
+                <!--<td th:text="${#aggregates.sum(o.orderLines.{purchasePrice * amount})}">23.32</td>-->
+                <!--<td>-->
+                    <!--<a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>-->
+                <!--</td>-->
+            </tr>
+        </table>
+    </div>
+    <div class="small-2 columns template" th:substituteby="_master :: sidebar">
+        [[side-nav menu]]
+    </div>
+</div>
+
+<footer class="template row" th:substituteby="_master :: footer">
+    <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+            <div class="small-4 columns">
+                [[copyright]]
+            </div>
+            <div class="small-8 columns">
+                <span class="right">[[powered by]]</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+.template {
+    background-color: orangered;
+}
+
+body {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background-color: lavender;
+}
+
+.post-author {
+    padding-left: 0.5em;
+}
+
+.current-user {
+    font-weight: bold;
+}
+
+.avatar-cell {
+    text-align: center;
+}
+
+table > thead > tr > th {
+    text-align: center;
+}
+.side-nav li {
+    font-size: 1em !important;
+}
+
+article.blog-post > p {
+    text-align: justify;
+}
+
+.post-info {
+    margin-top: -0.75em;
+    margin-bottom: 0.75em;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.comment-info {
+    margin-bottom: 0;
+}

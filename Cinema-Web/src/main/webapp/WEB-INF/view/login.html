@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:substituteby="_master :: head">
+    <title>Simple</title>
+    <link rel="stylesheet" href="../resources/css/foundation.min.css"/>
+    <link rel="stylesheet" href="../resources/css/style.css"/>
+</head>
+<body>
+
+<header class="template row" th:substituteby="_master :: header">
+    <div class="small-10 columns">
+        <h1>[[Title]]</h1>
+    </div>
+</header>
+
+<div class="row">
+    <div class="small-10 columns">
+        <h2>Login</h2>
+
+        <div th:if="${error}" class="alert-box alert">Wrong username or password!</div>
+
+        <form th:action="@{/loginCheck}" method="post">
+            <div class="row collapse" th:classappend="${error}?'error'">
+                <div class="large-2 columns">
+                    <label class="show-for-small" for="username">Name</label>
+                    <label class="hide-for-small inline" for="username">Name</label>
+                </div>
+                <div class="large-10 columns">
+                    <input id="username" name="username" type="text" autofocus="true"/>
+                </div>
+            </div>
+            <div class="row collapse" th:classappend="${error}?'error'">
+                <div class="large-2 columns">
+                    <label class="show-for-small" for="password">Password</label>
+                    <label class="hide-for-small inline" for="password">Password</label>
+                </div>
+                <div class="large-10 columns">
+                    <input id="password" name="password" type="password"/>
+                </div>
+            </div>
+            <input class="button" type="submit"
+                   value="Login" />
+        </form>
+
+        <div class="panel radius">
+            <span>Not registered?</span>
+            <a href="signup.html" th:href="@{/signup}">Sign up!</a>
+        </div>
+    </div>
+    <div class="small-2 columns template" th:substituteby="_master :: sidebar">
+        [[side-nav menu]]
+    </div>
+</div>
+
+<footer class="template row" th:substituteby="_master :: footer">
+    <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+            <div class="small-4 columns">
+                [[copyright]]
+            </div>
+            <div class="small-8 columns">
+                <span class="right">[[powered by]]</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html></html>

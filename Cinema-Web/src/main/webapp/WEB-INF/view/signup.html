@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:substituteby="_master :: head">
+    <title>Simple</title>
+    <link rel="stylesheet" href="../resources/css/foundation.min.css"/>
+    <link rel="stylesheet" href="../resources/css/style.css"/>
+</head>
+<body>
+
+<header class="template row" th:substituteby="_master :: header">
+    <div class="small-10 columns">
+        <h1>[[Title]]</h1>
+    </div>
+</header>
+
+<div class="row">
+    <div class="small-10 columns">
+        <h2>Signup</h2>
+
+        <form th:object="${userBean}" th:action="@{/signup}" method="post">
+            <div class="row collapse" th:classappend="${#fields.hasErrors('username')}?'error'">
+                <div class="large-2 columns">
+                    <label class="show-for-small" for="userName">Name</label>
+                    <label class="hide-for-small inline" for="userName">Name</label>
+                </div>
+                <div class="large-10 columns">
+                    <input id="userName" type="text" th:field="*{username}"/>
+                        <small class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Invalid
+                        username!
+                    </small>
+                </div>
+            </div>
+            <!--<div class="row collapse" th:classappend="${#fields.hasErrors('email')}?'error'">-->
+                <!--<div class="large-2 columns">-->
+                    <!--<label class="show-for-small" for="userEmail">E-mail</label>-->
+                    <!--<label class="hide-for-small inline" for="userEmail">E-mail</label>-->
+                <!--</div>-->
+                <!--<div class="large-10 columns">-->
+                    <!--<input id="userEmail" type="text" th:field="*{email}"/>-->
+                    <!--<small class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Invalid-->
+                        <!--e-mail!-->
+                    <!--</small>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="row collapse" th:classappend="${#fields.hasErrors('password')}?'error'">
+                <div class="large-2 columns">
+                    <label class="show-for-small" for="userPassword">Password</label>
+                    <label class="hide-for-small inline" for="userPassword">Password</label>
+                </div>
+                <div class="large-10 columns">
+                    <input id="userPassword" type="password" th:field="*{password}"/>
+                    <small class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+                        Invalid password!
+                    </small>
+                </div>
+            </div>
+            <input class="button" type="submit"
+                   value="Register"/>
+        </form>
+
+        <div class="panel radius">
+            <span>Already registered?</span>
+            <a href="login.html" th:href="@{/login}">Log in!</a>
+        </div>
+        <div class="small-2 columns template" th:substituteby="_master :: sidebar">
+            [[side-nav menu]]
+        </div>
+    </div>
+
+    <footer class="template row" th:substituteby="_master :: footer">
+        <div class="large-12 columns">
+            <hr/>
+            <div class="row">
+                <div class="small-4 columns">
+                    [[copyright]]
+                </div>
+                <div class="small-8 columns">
+                    <span class="right">[[powered by]]</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

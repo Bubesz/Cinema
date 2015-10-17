@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="CinemaPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <class>iit.cinema.entity.Seat</class>
+        <class>iit.cinema.entity.ReservedSeat</class>
+        <class>iit.cinema.entity.Screening</class>
+        <class>iit.cinema.entity.Auditorium</class>
+        <class>iit.cinema.entity.Movie</class>
+        <class>iit.cinema.entity.Role</class>
+        <class>iit.cinema.entity.User</class>
+        <class>iit.cinema.entity.Reservation</class>
+        <class>iit.cinema.status.ReservationStatus</class>
+        <class>iit.cinema.status.SeatStatus</class>
+
+        <shared-cache-mode>NONE</shared-cache-mode>
+
+        <properties>
+            <!--for debug-->
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <!--<property name="eclipselink.logging.level" value="FINE"/>-->
+
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:h2:mem/cinema"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/><!-- sa? -->
+        </properties>
+    </persistence-unit>
+</persistence>
