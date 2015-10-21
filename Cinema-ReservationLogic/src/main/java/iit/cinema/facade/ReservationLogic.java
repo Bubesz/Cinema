@@ -8,6 +8,7 @@ import iit.cinema.exception.CinemaException;
 import iit.cinema.repository.MovieRepository;
 import iit.cinema.repository.ScreeningRepository;
 import iit.cinema.repository.SeatRepository;
+import iit.cinema.util.ListUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,15 +30,15 @@ public class ReservationLogic implements IReservationLogic {
     private SeatRepository seatRepository;
 
     public List<Movie> getMovies() {
-        return movieRepository.findAll();
+        return ListUtil.createListFromIterable(movieRepository.findAll());
     }
 
     public List<Screening> getScreenings(String movieId) throws CinemaException {
-        return screeningRepository.findAll();
+        return ListUtil.createListFromIterable(screeningRepository.findAll());
     }
 
     public List<Seat> getSeats(String screeningId) throws CinemaException {
-        return seatRepository.findAll();
+        return ListUtil.createListFromIterable(seatRepository.findAll());
     }
 
     public List<ReservedSeat> getReservedSeats(String screeningId) throws CinemaException {

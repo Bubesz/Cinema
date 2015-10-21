@@ -8,6 +8,7 @@ import iit.cinema.repository.AuditoriumRepository;
 import iit.cinema.repository.MovieRepository;
 import iit.cinema.repository.ReservationRepository;
 import iit.cinema.repository.ScreeningRepository;
+import iit.cinema.util.ListUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +32,11 @@ public class CinemaLogic implements ICinemaLogic {
     private ReservationRepository reservationRepository;
 
     public List<Movie> getMovies() {
-        return movieRepository.findAll();
+        return ListUtil.createListFromIterable(movieRepository.findAll());
     }
 
     public List<Auditorium> getAuditoriums() {
-        return auditoriumRepository.findAll();
+        return ListUtil.createListFromIterable(auditoriumRepository.findAll());
     }
 
     public List<Screening> getScreeningsForMovie(String movieId) {

@@ -3,6 +3,7 @@ package iit.cinema.facade;
 import iit.cinema.entity.Role;
 import iit.cinema.entity.User;
 import iit.cinema.repository.UserRepository;
+import iit.cinema.util.ListUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class UserLogic implements IUserLogic {
     private UserRepository userRepository;
 
     public List<User> getUsers() {
-        return userRepository.findAll();
+        return ListUtil.createListFromIterable(userRepository.findAll());
     }
 
     public List<Role> getRoles() {
