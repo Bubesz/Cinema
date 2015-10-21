@@ -14,7 +14,7 @@
        <context:component-scan base-package="iit.cinema.facade"/>
 
 
-       <!-- remove -->
+       <!-- todo: remove because at least one jpa metamodel must be present -->
        <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter"/>
        <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
               <property name="persistenceUnitName" value="CinemaPU"/>

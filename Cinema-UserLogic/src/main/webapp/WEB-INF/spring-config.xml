@@ -12,4 +12,14 @@
 
        <jpa:repositories base-package="iit.cinema.repository"/>
        <context:component-scan base-package="iit.cinema.facade"/>
+
+       <!-- todo: remove because at least one jpa metamodel must be present -->
+       <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter"/>
+       <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+              <property name="persistenceUnitName" value="CinemaPU"/>
+              <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+       </bean>
+       <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+              <property name="entityManagerFactory" ref="entityManagerFactory"/>
+       </bean>
 </beans>
