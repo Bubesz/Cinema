@@ -2,13 +2,22 @@ package iit.cinema.rest;
 
 import iit.cinema.entity.Role;
 import iit.cinema.entity.User;
-import iit.cinema.facade.IUserLogic;
 import iit.cinema.facade.UserLogic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resources;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 // http://localhost:8080/Cinema-UserLogic-1.1/userLogic/users/
 
@@ -16,14 +25,24 @@ import java.util.List;
  * Created by Attila on 2015.10.21..
  */
 @RestController
+@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 @RequestMapping("/userLogic")
-public class UserLogicRestController implements IUserLogic {
+public class UserLogicRestController {
     @Autowired
     private UserLogic userLogic;
 
+    @Autowired
+    private UserResourceAssembler userResourceAssembler;
+
     @RequestMapping("/users")
-    public List<User> getUsers() {
-        return userLogic.getUsers();
+    public HttpEntity<Resources<UserResource>> getUsers() {
+        Collection<UserResource> userResourceCollection = new ArrayList<>();
+        for (User c : this.userLogic.getUsers()) {
+            userResourceCollection.add(userResourceAssembler.toResource(c));
+        }
+        Resources<UserResource> userResources = new Resources<>(userResourceCollection);
+        userResources.add(linkTo(methodOn(UserLogicRestController.class).getUsers()).withSelfRel());
+        return new ResponseEntity<>(userResources, HttpStatus.OK);
     }
 
     public List<Role> getRoles() {
