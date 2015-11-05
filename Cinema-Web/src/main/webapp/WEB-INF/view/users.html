@@ -24,7 +24,7 @@
             </tr>
             <tr th:each="user : ${users}">
                 <td th:text="${user.userId}">12</td>
-                <td th:text="${user.useName}">Attila</td>
+                <td th:text="${user.userName}">Attila</td>
                 <!--<td th:text="${#aggregates.sum(o.orderLines.{purchasePrice * amount})}">23.32</td>-->
                 <!--<td>-->
                     <!--<a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>-->

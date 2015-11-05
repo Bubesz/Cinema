@@ -13,7 +13,7 @@ public class User {
     @GeneratedValue
     private Long userId;
 
-    private String useName;
+    private String userName;
     private String password;
 
     @ManyToMany
@@ -31,12 +31,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUseName() {
-        return useName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUseName(String useName) {
-        this.useName = useName;
+    public void setUserName(String useName) {
+        this.userName = useName;
     }
 
     public String getPassword() {
