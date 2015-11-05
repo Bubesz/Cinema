@@ -2,7 +2,7 @@ package iit.cinema.connector;
 
 import iit.cinema.entity.Role;
 import iit.cinema.entity.User;
-import iit.cinema.facade.IUserLogic;
+import iit.cinema.interfaces.IUserLogic;
 import iit.cinema.rest.UserLogicRestController;
 import org.springframework.hateoas.Link;
 import org.springframework.web.client.RestTemplate;

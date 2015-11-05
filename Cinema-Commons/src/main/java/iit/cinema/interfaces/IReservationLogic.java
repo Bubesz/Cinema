@@ -1,4 +1,4 @@
-package iit.cinema.facade;
+package iit.cinema.interfaces;
 
 import iit.cinema.entity.Movie;
 import iit.cinema.entity.ReservedSeat;

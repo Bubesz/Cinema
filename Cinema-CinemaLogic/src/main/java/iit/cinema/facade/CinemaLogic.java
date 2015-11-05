@@ -4,6 +4,7 @@ import iit.cinema.entity.Auditorium;
 import iit.cinema.entity.Movie;
 import iit.cinema.entity.Reservation;
 import iit.cinema.entity.Screening;
+import iit.cinema.interfaces.ICinemaLogic;
 import iit.cinema.repository.AuditoriumRepository;
 import iit.cinema.repository.MovieRepository;
 import iit.cinema.repository.ReservationRepository;

@@ -3,6 +3,7 @@ package iit.cinema.rest;
 import iit.cinema.entity.Role;
 import iit.cinema.entity.User;
 import iit.cinema.facade.UserLogic;
+import iit.cinema.interfaces.IUserLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resources;
 import org.springframework.hateoas.config.EnableHypermediaSupport;
@@ -26,8 +27,8 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
  */
 @RestController
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
-@RequestMapping("/userLogic")
-public class UserLogicRestController {
+
+public class UserLogicRestController implements IUserLogic {
     @Autowired
     private UserLogic userLogic;
 
@@ -35,7 +36,7 @@ public class UserLogicRestController {
     private UserResourceAssembler userResourceAssembler;
 
     @RequestMapping("/users")
-    public HttpEntity<Resources<UserResource>> getUsers() {
+    public HttpEntity<Resources<UserResource>> getUsers2() {
         Collection<UserResource> userResourceCollection = new ArrayList<>();
         for (User c : this.userLogic.getUsers()) {
             userResourceCollection.add(userResourceAssembler.toResource(c));
@@ -43,6 +44,10 @@ public class UserLogicRestController {
         Resources<UserResource> userResources = new Resources<>(userResourceCollection);
         userResources.add(linkTo(methodOn(UserLogicRestController.class).getUsers()).withSelfRel());
         return new ResponseEntity<>(userResources, HttpStatus.OK);
+    }
+
+    public List<User> getUsers() {
+        return userLogic.getUsers();
     }
 
     public List<Role> getRoles() {

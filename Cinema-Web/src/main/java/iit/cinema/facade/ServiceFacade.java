@@ -1,5 +1,8 @@
 package iit.cinema.facade;
 
+import iit.cinema.interfaces.ICinemaLogic;
+import iit.cinema.interfaces.IReservationLogic;
+import iit.cinema.interfaces.IUserLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

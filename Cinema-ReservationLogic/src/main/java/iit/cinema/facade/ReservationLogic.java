@@ -5,6 +5,7 @@ import iit.cinema.entity.ReservedSeat;
 import iit.cinema.entity.Screening;
 import iit.cinema.entity.Seat;
 import iit.cinema.exception.CinemaException;
+import iit.cinema.interfaces.IReservationLogic;
 import iit.cinema.repository.MovieRepository;
 import iit.cinema.repository.ScreeningRepository;
 import iit.cinema.repository.SeatRepository;
