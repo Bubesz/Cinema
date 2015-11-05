@@ -13,21 +13,26 @@
     <packaging>war</packaging>
 
     <dependencies>
+        <!-- in memory -->
         <dependency>
             <groupId>Cinema</groupId>
             <artifactId>Cinema-CinemaLogic</artifactId>
             <version>1.1</version>
         </dependency>
+
+        <!-- seb service --><!-- todo delete -->
         <dependency>
             <groupId>Cinema</groupId>
             <artifactId>Cinema-ReservationLogic</artifactId>
             <version>1.1</version>
         </dependency>
+
+        <!-- rest --><!-- todo delete -->
         <dependency>
             <groupId>Cinema</groupId>
             <artifactId>Cinema-UserLogic</artifactId>
             <version>1.1</version>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
 
         <!-- web -->

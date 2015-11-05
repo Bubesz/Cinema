@@ -1,5 +1,6 @@
 package iit.cinema.controller;
 
+import iit.cinema.entity.Role;
 import iit.cinema.entity.User;
 import iit.cinema.facade.ServiceFacade;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,13 @@ public class IndexController {
     }
 
     // TODO child module scope to provided ? use eclipselink and springframework modules
+
+    @RequestMapping("/roles")
+    public String roles(Model model) {
+        List<Role> roles = service.getUserLogic().getRoles();
+        model.addAttribute("roles", roles);
+        return "roles";
+    }
 
     @RequestMapping("/users")
     public String users(Model model) {
