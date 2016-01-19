@@ -1,8 +1,5 @@
 package iit.cinema.entity;
 
-import iit.cinema.attributeconverter.DurationConverter;
-
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

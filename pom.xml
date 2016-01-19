@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
+        <application.version>1.1</application.version>
         <springframework.version>4.1.6.RELEASE</springframework.version>
         <spring-data-jpa.version>1.9.0.RELEASE</spring-data-jpa.version>
         <!--<spring-security.version>4.0.2.RELEASE</spring-security.version>-->
@@ -13,9 +14,10 @@
     <groupId>Cinema</groupId>
     <artifactId>CinemaApp</artifactId>
     <packaging>pom</packaging>
-    <version>1.1</version>
+    <version>${application.version}</version>
     <modules>
         <module>Cinema-Commons</module>
+        <module>Cinema-Database</module>
         <module>Cinema-CinemaLogic</module>
         <module>Cinema-ReservationLogic</module>
         <module>Cinema-UserLogic</module>

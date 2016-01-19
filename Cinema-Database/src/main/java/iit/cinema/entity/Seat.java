@@ -1,6 +1,9 @@
 package iit.cinema.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * Created by Attila on 2015.09.27..
