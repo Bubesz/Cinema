@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by Attila on 2015.09.27..
+ * Created by Attila on 2015.09.27.
  */
 @Entity
 public class Reservation {

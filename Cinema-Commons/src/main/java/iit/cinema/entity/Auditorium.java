@@ -7,7 +7,7 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
- * Created by Attila on 2015.09.27..
+ * Created by Attila on 2015.09.27.
  */
 @Entity
 public class Auditorium {

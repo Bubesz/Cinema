@@ -3,7 +3,7 @@ package iit.cinema.entity;
 import javax.persistence.*;
 
 /**
- * Created by Attila on 2015.09.27..
+ * Created by Attila on 2015.09.27.
  */
 @Entity
 public class Seat {

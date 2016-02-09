@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 /**
- * Created by Attila on 2015.09.27..
+ * Created by Attila on 2015.09.27.
  */
 @Entity
 public class ReservedSeat {
