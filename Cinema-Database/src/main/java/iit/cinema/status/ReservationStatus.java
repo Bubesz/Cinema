@@ -5,5 +5,14 @@ package iit.cinema.status;
  */
 public enum ReservationStatus {
     RESERVED,
-    SOLD
+    SOLD;
+
+    public boolean isReserved() {
+        return RESERVED.equals(this);
+    }
+
+    public boolean isSold() {
+        return SOLD.equals(this);
+    }
+
 }
